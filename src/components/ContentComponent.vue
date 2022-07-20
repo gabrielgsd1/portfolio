@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import JobsVue from "./Jobs/JobsVue.vue";
-  import KnowledgeVue from "./Knowledge/KnowledgesVue.vue";
+  import KnowledgesVue from "./Knowledge/KnowledgesVue.vue";
   import ProjectsVue from "./Projects/ProjectsVue.vue";
   import WelcomeVue from './Welcome/WelcomeVue.vue';
   import LanguagesVue from './Languages/LanguagesVue.vue'
@@ -10,16 +10,16 @@
 <template>
   <div class="text-yellow-50 w-[90%] m-auto p-4">
     <WelcomeVue/>
-    <section>
+    <section name="jobs">
       <JobsVue/>
     </section>
-    <section>
-      <KnowledgeVue/>
+    <section name="knowledges">
+      <KnowledgesVue/>
     </section>
-    <section>
+    <section name="projects">
       <ProjectsVue/>
     </section>
-    <section>
+    <section name="languages">
       <LanguagesVue/>
     </section>
   </div>

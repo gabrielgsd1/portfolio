@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div class="container">
+  <div class="container welcome">
     <CodeTypewriter message="Olá, seja bem-vind@ ao meu portfólio!"/>
     <AboutMe></AboutMe>
   </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { useTypewriter } from '../Composables/useTypewriter';
+  import { useTypewriter } from '@/composables/useTypewriter'
 
   const props = defineProps<{
     message: string

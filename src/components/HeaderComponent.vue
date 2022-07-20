@@ -1,27 +1,26 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-
-
-  onMounted(() => {
-    console.log(document.querySelector('header')?.clientHeight)
-    console.log(document.querySelector('header')?.offsetHeight)
-    console.log(document.querySelector('header')?.scrollHeight)
-  })
+  function scrollToSection(name:string){
+    if(name === 'about') {
+      document.querySelector('.welcome')?.scrollIntoView()
+      return
+    }
+    document.querySelector(`section[name=${name}]`)?.scrollIntoView()
+  }
 </script>
 
 <template>
-  <header class="sticky top-0 p-4 bg-gray-900 sm:p-0 z-[100] group">
-    <div class="container text-gray-300 ">
-      <div class="flex sm:hidden gap-1 flex-col duration-200 group-hover:rotate-90 p-2 w-fit">
-        <div class="w-6 h-[0.125em] bg-gray-300"></div>
-        <div class="w-6 h-[0.125em] bg-gray-300"></div>
-        <div class="w-6 h-[0.125em] bg-gray-300"></div>
-      </div> 
-      <ul class="hidden bg-gray-900 sm:flex-row sm:flex absolute top-[100%] z-[100] right-0 left-0 flex-col w-full items-strech group-active:flex group-hover:flex hover:flex ">
-        <li class="duration-200 w-full text-center hover:bg-black"><div class="p-2">Sobre mim</div></li>
-        <li class="duration-200 w-full text-center hover:bg-black"><div class="p-2">Experiências</div></li>
-        <li class="duration-200 w-full text-center hover:bg-black"><div class="p-2">Conhecimentos</div></li>
-        <li class="duration-200 w-full text-center hover:bg-black"><div class="p-2">Idiomas</div></li>
+  <header class="text-[#ddd] bg-slate-900 sticky top-0 right-0 left-0 group z-[10]">
+    <div class="stripes flex flex-col duration-[350ms] ease-in-out gap-1 p-4 w-fit group-hover:rotate-90 lg:hidden">
+      <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
+      <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
+      <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
+    </div>
+    <div class="w-full hidden bg-slate-900 group-hover:block lg:block">
+      <ul class="flex flex-col lg:flex-row w-full text-center">
+        <li @click="() => scrollToSection('about')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Sobre mim</div></li>
+        <li @click="() => scrollToSection('jobs')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Experiências</div></li>
+        <li @click="() => scrollToSection('knowledges')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Conhecimentos</div></li>
+        <li @click="() => scrollToSection('languages')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Idiomas</div></li>
       </ul>
     </div>
   </header>
