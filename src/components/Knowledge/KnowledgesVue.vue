@@ -17,7 +17,8 @@ type KnowledgeProps = {
 type Knowledges = {
   frontend: KnowledgeProps[],
   backend: KnowledgeProps[],
-  databases: KnowledgeProps[]
+  databases: KnowledgeProps[],
+  others?: KnowledgeProps[]
 }
 
 const knowledges:Knowledges = { 
@@ -116,6 +117,26 @@ const knowledges:Knowledges = {
         to: '#543105'
       } 
     }
+  ],
+  others: [
+    {
+      name: 'Docker',
+      imgLink: "https://seeklogo.com/images/D/docker-logo-CF97D0124B-seeklogo.com.png",
+      description: 'Images e Containers.',
+      colors: {
+        from: '#0953A2',
+        to: '#B4D8FF'
+      }
+    },
+    {
+      name: 'Git',
+      imgLink: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+      description: 'Comandos para versionamento de código.',
+      colors: {
+        from: '#FF8585',
+        to: '#FF6054'
+      }
+    }
   ]
 }
 
@@ -157,6 +178,20 @@ const knowledges:Knowledges = {
       <div class="knowledge databases grid w-full gap-4 lg:grid-cols-2">
         <KnowledgeVue 
           v-for="item in knowledges.databases" 
+          :key="item.name"
+          :img-link="item.imgLink"
+          :colors="item.colors"
+        >
+          <template v-slot:name>{{item.name}}</template>
+          <template v-slot:description>{{item.description}}</template>
+        </KnowledgeVue>
+      </div> 
+    </div>
+    <div class="knowledge-container">
+      <h2 class="text-2xl font-thin my-4">Outros</h2>
+      <div class="knowledge others grid w-full gap-4 lg:grid-cols-2">
+        <KnowledgeVue 
+          v-for="item in knowledges.others" 
           :key="item.name"
           :img-link="item.imgLink"
           :colors="item.colors"
