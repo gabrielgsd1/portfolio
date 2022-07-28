@@ -89,6 +89,16 @@ const knowledges:Knowledges = {
       }
     },
     {
+      name: 'Nest',
+      description: "Pipes, Guards, Decorators, Controllers, Middleware, Modules, Services, CORS e conexão com banco de dados.",
+      imgLink: 'https://seeklogo.com/images/N/nestjs-logo-09342F76C0-seeklogo.com.png',
+      colors: {
+        from: '#960202',
+        to: '#aaa'
+      }
+
+    },
+    {
       name: "Prisma",
       description: "Prisma Schemas, Prisma Client e operações CRUD.",
       imgLink: "https://www.svgrepo.com/show/354210/prisma.svg",
