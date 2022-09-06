@@ -11,7 +11,7 @@ import {type Ref , ref } from 'vue';
 
 <template>
   <div 
-    :class="'grayscale-[85%] transition-all duration-300 cursor-pointer hover:grayscale-0 flex py-8 px-4 relative box-border gap-8 rounded-xl bg-gradient-to-r'"
+    :class="'transition-all duration-300 flex py-8 px-4 relative box-border gap-8 rounded-xl bg-gradient-to-r'"
     ref="knowledgeElement"
     :style="{background: `linear-gradient(90deg, ${props.colors?.from}, ${props.colors?.to})`}"
   >

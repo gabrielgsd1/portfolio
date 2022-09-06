@@ -4,7 +4,9 @@
       document.querySelector('.welcome')?.scrollIntoView()
       return
     }
-    document.querySelector(`section[name=${name}]`)?.scrollIntoView()
+    document.querySelector(`section[name=${name}]`)?.scrollIntoView({
+      behavior: 'smooth',
+    })
   }
 </script>
 
@@ -20,6 +22,7 @@
         <li @click="() => scrollToSection('about')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Sobre mim</div></li>
         <li @click="() => scrollToSection('jobs')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Experiências</div></li>
         <li @click="() => scrollToSection('knowledges')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Conhecimentos</div></li>
+        <li @click="() => scrollToSection('projects')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Projetos</div></li>
         <li @click="() => scrollToSection('languages')" class="flex-1"><div class="py-3 cursor-default hover:bg-gray-600">Idiomas</div></li>
       </ul>
     </div>

@@ -15,6 +15,7 @@ type KnowledgeProps = {
 }
 
 type Knowledges = {
+  languages: KnowledgeProps[],
   frontend: KnowledgeProps[],
   backend: KnowledgeProps[],
   databases: KnowledgeProps[],
@@ -22,6 +23,35 @@ type Knowledges = {
 }
 
 const knowledges:Knowledges = { 
+  languages: [
+    {
+      imgLink: "https://logospng.org/download/javascript/logo-javascript-1024.png",
+      name: "Javascript",
+      description: "Conhecimento considerável da linguagem, utilizando-a com frameworks tanto de front-end quanto de back-end.",
+      colors: {
+        from: "#aa5500",
+        to: "#cc7700"
+      }
+    },
+    {
+      imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1024px-Typescript_logo_2020.svg.png",
+      name: "Typescript",
+      description: "Conhecimento considerável da linguagem, utilizando-a com frameworks tanto de front-end quanto de back-end (incluindo tipagem).",
+      colors: {
+        from: "#0033CD",
+        to: "#0077ab"
+      }
+    },
+    {
+      imgLink: "https://storage.googleapis.com/hcode.com.br/courses/65/logo_svg5fd776bc276da.svg",
+      name: "C#",
+      description: "Conhecimento intermediário da linguagem e na plataforma .Net Core.",
+      colors: {
+        from: "#9400D3",
+        to: "#6000D3"
+      }
+    },
+  ],
   frontend: [
     {
     imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/2048px-HTML5_Badge.svg.png",
@@ -106,11 +136,29 @@ const knowledges:Knowledges = {
         from: 'rgb(45,45,120)',
         to: 'black'
       }
+    },
+    {
+      name: ".Net Core",
+      description: "Utilização do ASP.NET Core Web API para criação de APIs utilizando a plataforma .Net Core.",
+      imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/2048px-.NET_Core_Logo.svg.png",
+      colors: {
+        from: "purple",
+        to: "#4000D3"
+      }
+    },
+    {
+      imgLink: "https://plugins.jetbrains.com/files/18147/209295/icon/pluginIcon.svg",
+      name: "Entity Framework Core",
+      description: "Conexão com o banco de dados, operaçoes CRUD, Migrations, Data Annotations, Fluent API, e Conventions.",
+      colors: {
+        from: "purple",
+        to: "#4000ff"
+      }
     }
   ],
   databases: [
     {
-      imgLink: "https://hackr.io/tutorials/learn-sql-server/logo/logo-sql-server?ver=1557508629",
+      imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/993px-Postgresql_elephant.svg.png",
       name: "SQL",
       description: "Cláusulas de seleção, atualização, inserção, deleção, Stored Procedures, Triggers, joins e aggregate functions.",
       colors: {
@@ -155,6 +203,20 @@ const knowledges:Knowledges = {
 <template>
   <div class="knowledgeComponent flex flex-col gap-12">
     <CodeTypewriter message="Conhecimentos"></CodeTypewriter>
+    <div class="knowledge-container">
+      <h2 class="text-2xl font-thin my-4">Linguagens</h2>
+      <div class="knowledge front-end grid w-full gap-4 lg:grid-cols-2">
+        <KnowledgeVue 
+          v-for="item in knowledges.languages" 
+          :key="item.name"
+          :img-link="item.imgLink"
+          :colors="item.colors"
+        >
+          <template v-slot:name>{{item.name}}</template>
+          <template v-slot:description>{{item.description}}</template>
+        </KnowledgeVue>
+      </div>
+    </div>
     <div class="knowledge-container">
       <h2 class="text-2xl font-thin my-4">Front-end</h2>
       <div class="knowledge front-end grid w-full gap-4 lg:grid-cols-2">
