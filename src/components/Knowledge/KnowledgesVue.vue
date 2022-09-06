@@ -47,8 +47,8 @@ const knowledges:Knowledges = {
       name: "C#",
       description: "Conhecimento intermediário da linguagem e na plataforma .Net Core.",
       colors: {
-        from: "#9400D3",
-        to: "#6000D3"
+        from: "#7100D3",
+        to: "#4000D3"
       }
     },
   ],
@@ -162,8 +162,8 @@ const knowledges:Knowledges = {
       name: "SQL",
       description: "Cláusulas de seleção, atualização, inserção, deleção, Stored Procedures, Triggers, joins e aggregate functions.",
       colors: {
-        from: "#aaa",
-        to: "#880000"
+        from: "#0012cc",
+        to: "#866"
       }
     },
     {
@@ -174,6 +174,15 @@ const knowledges:Knowledges = {
         from: '#235601',
         to: '#543105'
       } 
+    }, 
+    {
+      imgLink: "https://plugins.jetbrains.com/files/12820/149292/icon/pluginIcon.svg",
+      name: "Redis",
+      description: "Caching.",
+      colors: {
+        from: "#aa0000",
+        to: "#330000"
+      }
     }
   ],
   others: [
@@ -183,7 +192,7 @@ const knowledges:Knowledges = {
       description: 'Images e Containers.',
       colors: {
         from: '#0953A2',
-        to: '#B4D8FF'
+        to: '#A4C7bb'
       }
     },
     {
