@@ -16,6 +16,7 @@
     padding: 0;
   }
   body{
-    background: rgb(15, 15, 25);
+    background: linear-gradient(45deg, rgb(10,10,10), rgb(18, 0, 34), rgb(7, 3, 39));
+    background-attachment: fixed;
   }
 </style>

@@ -19,12 +19,12 @@
     >
       {{word.value}}
     </code>
-    <span id='bar'>|</span>
   </div>
 </template>
 
 <style scoped>
-  #bar {
+  code:nth-last-of-type(1)::after {
+    content:"|";
     animation: blink 1.25s infinite;
     pointer-events: none;
   }
@@ -38,6 +38,6 @@
     }
   }
   code{
-    font-family: "Roboto Mono"
+    font-family: "Roboto Mono", monospace;
   }
 </style>

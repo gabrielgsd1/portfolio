@@ -1,6 +1,24 @@
 <script setup lang="ts">
-import KnowledgeVue from "./KnowledgeVue.vue";
 import CodeTypewriter from "../Utilities/CodeTypewriter.vue";
+import MinimalistKnowledge from "./MinimalistKnowledge.vue";
+import { ref, computed } from "vue";
+import KnowledgeVue from "./KnowledgeVue.vue";
+
+const minimalistOption = ref(false)
+
+const stylingOptions = computed(() => {
+  if(minimalistOption.value) return "bg-gradient-to-r from-purple-800 via-fuchsia-700 to-fuchsia-900"
+  else return "bg-gray-800"
+})
+
+const containterStyleOptions = computed(() => {
+  if(minimalistOption.value) return "knowledge flex flex-wrap gap-8"
+  return "knowledge grid w-full gap-4 lg:grid-cols-2"
+})
+
+function switchOption() {
+  minimalistOption.value = !minimalistOption.value
+}
 
 type Colors = {
   from: string,
@@ -20,6 +38,14 @@ type Knowledges = {
   backend: KnowledgeProps[],
   databases: KnowledgeProps[],
   others?: KnowledgeProps[]
+}
+
+const descriptions = {
+  languages: "Linguagens",
+  frontend: "Front-end",
+  backend: "Back-end",
+  databases: "Banco de Dados",
+  others: "Outros",
 }
 
 const knowledges:Knowledges = { 
@@ -58,8 +84,8 @@ const knowledges:Knowledges = {
     name: "HTML5",
     description: "Conhecimento de diversas tags, semânticas e noções de responsividade.",
     colors: {
-      from: "#ed758b",
-      to: "#ef6c5f"
+      from: "#FF8C00",
+      to: "#FF4500",
     }
     },
     {
@@ -74,7 +100,7 @@ const knowledges:Knowledges = {
     {
     imgLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png',
     name: 'Vue',
-    description: 'É a tecnologia mais recente que continuo aprendendo. Já vi tópicos como Single File Components, Provide/Inject, Watchers, Slots, Refs, Computed, Transitions e TransitionGroup, Vue Router, Composables, Stores e Emits.',
+    description: 'Single File Components, Provide/Inject, Watchers, Slots, Refs, Computed, Transitions e TransitionGroup, Vue Router, Composables, Stores e Emits.',
     colors: {
       from: 'rgb(0,130,0)',
       to: 'rgb(0,40,0)'
@@ -211,78 +237,47 @@ const knowledges:Knowledges = {
 
 <template>
   <div class="knowledgeComponent flex flex-col gap-12">
-    <CodeTypewriter message="Conhecimentos"></CodeTypewriter>
-    <div class="knowledge-container">
-      <h2 class="text-2xl font-thin my-4">Linguagens</h2>
-      <div class="knowledge front-end grid w-full gap-4 lg:grid-cols-2">
-        <KnowledgeVue 
-          v-for="item in knowledges.languages" 
-          :key="item.name"
-          :img-link="item.imgLink"
-          :colors="item.colors"
-        >
-          <template v-slot:name>{{item.name}}</template>
-          <template v-slot:description>{{item.description}}</template>
-        </KnowledgeVue>
-      </div>
+    <CodeTypewriter message="Conhecimentos"/>
+    <div class="simple font-bold text-2xl">
+      <p class="mr-4 h-auto inline bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-blue-500">Modo minimalista</p>
+      <button @click="switchOption" :class="`button p-2 rounded-3xl w-[5rem] ` + stylingOptions">
+        <div 
+          class="circle duration-200 rounded-[50%] bg-white w-6 h-6"
+          :style="{transform: minimalistOption ? 'translateX(175%)' : 'translateX(0)'}"
+        />
+      </button>
     </div>
-    <div class="knowledge-container">
-      <h2 class="text-2xl font-thin my-4">Front-end</h2>
-      <div class="knowledge front-end grid w-full gap-4 lg:grid-cols-2">
-        <KnowledgeVue 
-          v-for="item in knowledges.frontend" 
-          :key="item.name"
-          :img-link="item.imgLink"
-          :colors="item.colors"
-        >
-          <template v-slot:name>{{item.name}}</template>
-          <template v-slot:description>{{item.description}}</template>
-        </KnowledgeVue>
-      </div>
-    </div>
-    <div class="knowledge-container">
-      <h2 class="text-2xl font-thin my-4">Back-end</h2>
-      <div class="knowledge back-end grid w-full gap-4 lg:grid-cols-2">
-        <KnowledgeVue 
-          v-for="item in knowledges.backend" 
-          :key="item.name"
-          :img-link="item.imgLink"
-          :colors="item.colors"
-        >
-          <template v-slot:name>{{item.name}}</template>
-          <template v-slot:description>{{item.description}}</template>
-        </KnowledgeVue>
-      </div> 
-    </div>
-    <div class="knowledge-container">
-      <h2 class="text-2xl font-thin my-4">Banco de dados</h2>
-      <div class="knowledge databases grid w-full gap-4 lg:grid-cols-2">
-        <KnowledgeVue 
-          v-for="item in knowledges.databases" 
-          :key="item.name"
-          :img-link="item.imgLink"
-          :colors="item.colors"
-        >
-          <template v-slot:name>{{item.name}}</template>
-          <template v-slot:description>{{item.description}}</template>
-        </KnowledgeVue>
-      </div> 
-    </div>
-    <div class="knowledge-container">
-      <h2 class="text-2xl font-thin my-4">Outros</h2>
-      <div class="knowledge others grid w-full gap-4 lg:grid-cols-2">
-        <KnowledgeVue 
-          v-for="item in knowledges.others" 
-          :key="item.name"
-          :img-link="item.imgLink"
-          :colors="item.colors"
-        >
-          <template v-slot:name>{{item.name}}</template>
-          <template v-slot:description>{{item.description}}</template>
-        </KnowledgeVue>
-      </div> 
+    <div 
+      class="knowledge-container" 
+      v-for="(value, key) in knowledges"
+      :key="value?.toString()"
+    >
+      <h2 class="text-2xl font-thin my-4">{{descriptions[key]}}</h2>
+        <div :class="containterStyleOptions">
+          <template v-if="minimalistOption">
+            <MinimalistKnowledge 
+              v-for="knowledge in value"
+              :colors="knowledge.colors"
+              :name="knowledge.name"
+              :imgLink="knowledge.imgLink"
+              :description="knowledge.description"
+              :key="knowledge.name"
+            />
+          </template>
+          <template v-else>
+            <KnowledgeVue 
+              v-for="item in value" 
+              :key="item.name"
+              :name="item.name"
+              :img-link="item.imgLink"
+              :colors="item.colors"
+            >
+              <template v-slot:name>{{item.name}}</template>
+              <template v-slot:description>{{item.description}}</template>
+            </KnowledgeVue>
+          </template>
+        </div>
     </div>
   </div>
-
 </template>
 
