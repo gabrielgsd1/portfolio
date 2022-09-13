@@ -24,6 +24,7 @@
         <div class="py-4"><li @click="scrollToSection('knowledges')" class="cursor-pointer header-item">Conhecimentos</li></div>
         <div class="py-4"><li @click="scrollToSection('projects')" class="cursor-pointer header-item">Projetos</li></div>
         <div class="py-4"><li @click="scrollToSection('languages')" class="cursor-pointer header-item">Idiomas</li></div>
+        <div class="py-4"><li @click="scrollToSection('contacts')" class="cursor-pointer header-item">Contato</li></div>
       </ul>
     </div>
   </header>
@@ -37,8 +38,8 @@
   }
 
   header {
-    background-color: rgba(0,0,0,0.4);
-    backdrop-filter: blur(6px);
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 1rem black;
   }
 

@@ -4,6 +4,7 @@
   import ProjectsVue from "./Projects/ProjectsVue.vue";
   import WelcomeVue from './Welcome/WelcomeVue.vue';
   import LanguagesVue from './Languages/LanguagesVue.vue'
+  import ContactVue from './Contact/ContactVue.vue'
 
 </script>
 
@@ -21,6 +22,9 @@
     </section>
     <section name="languages">
       <LanguagesVue/>
+    </section>
+    <section name="contacts">
+      <ContactVue/>
     </section>
   </div>
 </template>
