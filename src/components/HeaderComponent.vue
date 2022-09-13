@@ -11,13 +11,13 @@
 </script>
 
 <template>
-  <header class="text-[#ddd] bg-slate-900 sticky top-0 right-0 left-0 group z-[10]">
+  <header class="text-[#bbb] sticky top-0 right-0 left-0 group z-[10]">
     <div class="stripes flex flex-col duration-[350ms] ease-in-out gap-1 p-4 w-fit group-hover:rotate-90 lg:hidden">
       <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
       <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
       <div class="bg-[#ccc] w-6 h-[0.15em] rounded-md"></div>
     </div>
-    <div class="w-full hidden bg-slate-900 group-hover:block lg:block">
+    <div class="header-div w-full hidden group-hover:block lg:block">
       <ul class="flex lg:justify-center lg:gap-16 flex-col lg:flex-row w-full text-center">
         <div class="py-4"><li @click="scrollToSection('about')" class="cursor-pointer header-item">Sobre mim</li></div>
         <div class="py-4"><li @click="scrollToSection('jobs')" class="cursor-pointer header-item">Experiências</li></div>
@@ -34,6 +34,12 @@
     list-style: 0;
     padding: 0;
     margin: 0;
+  }
+
+  header {
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 1rem black;
   }
 
   .header-item {

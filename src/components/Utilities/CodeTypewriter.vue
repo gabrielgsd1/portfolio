@@ -27,6 +27,7 @@
     content:"|";
     animation: blink 1.25s infinite;
     pointer-events: none;
+    filter: hue-rotate(180deg);
   }
 
   @keyframes blink {

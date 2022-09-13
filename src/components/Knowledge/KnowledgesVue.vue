@@ -281,3 +281,7 @@ const knowledges:Knowledges = {
   </div>
 </template>
 
+<style scoped>
+
+</style>
+
