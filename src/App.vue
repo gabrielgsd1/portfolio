@@ -10,7 +10,10 @@
 </template>
 
 <style>
-
+  ::selection{
+    background: rgb(210, 81, 0);
+    color: white;
+  }
   body, html{
     margin: 0;
     padding: 0;
