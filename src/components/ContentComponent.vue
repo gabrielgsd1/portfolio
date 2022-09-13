@@ -5,12 +5,13 @@
   import WelcomeVue from './Welcome/WelcomeVue.vue';
   import LanguagesVue from './Languages/LanguagesVue.vue'
   import ContactVue from './Contact/ContactVue.vue'
-
 </script>
 
 <template>
   <div class="text-yellow-50 w-[90%] m-auto p-4">
-    <WelcomeVue/>
+    <section name="welcome">
+      <WelcomeVue/>
+    </section>
     <section name="jobs">
       <JobsVue/>
     </section>

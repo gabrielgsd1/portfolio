@@ -9,10 +9,10 @@ type Contacts = {
 
 const contacts:Contacts[] = [{
   img: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
-  name: "LinkedIn",
+  name: "LinkedIn - Gabriel Gomes",
   href: "https://www.linkedin.com/in/gabriel-gomes-6410a31bb/"
 }, {
-  name: "GitHub",
+  name: "GitHub - gabrielgsd1",
   img: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
   href: "https://github.com/gabrielgsd1"
 },
@@ -29,11 +29,11 @@ const contacts:Contacts[] = [{
 
 <template>
   <CodeTypewriter message="Contatos"/>
-  <div class="items border-box p-8">
+  <div class="items border-box py-8">
     <a 
       v-for="item in contacts"
       :href="item.href" 
-      class="item text-xl flex gap-4 items-center"
+      class="item text-md lg:text-xl flex gap-4 items-center"
       :key="item.name"
       >
       <img :src="item.img" class="w-8 h-8 grayscale-[100%] brightness-[10%]"/>

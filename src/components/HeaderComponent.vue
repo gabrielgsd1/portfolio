@@ -1,9 +1,5 @@
 <script lang="ts" setup>
   function scrollToSection(name:string){
-    if(name === 'about') {
-      document.querySelector('.welcome')?.scrollIntoView()
-      return
-    }
     document.querySelector(`section[name=${name}]`)?.scrollIntoView({
       behavior: 'smooth',
     })
@@ -19,7 +15,7 @@
     </div>
     <div class="header-div w-full hidden group-hover:block lg:block">
       <ul class="flex lg:justify-center lg:gap-16 flex-col lg:flex-row w-full text-center">
-        <div class="py-4"><li @click="scrollToSection('about')" class="cursor-pointer header-item">Sobre mim</li></div>
+        <div class="py-4"><li @click="scrollToSection('welcome')" class="cursor-pointer header-item">Sobre mim</li></div>
         <div class="py-4"><li @click="scrollToSection('jobs')" class="cursor-pointer header-item">Experiências</li></div>
         <div class="py-4"><li @click="scrollToSection('knowledges')" class="cursor-pointer header-item">Conhecimentos</li></div>
         <div class="py-4"><li @click="scrollToSection('projects')" class="cursor-pointer header-item">Projetos</li></div>
