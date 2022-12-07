@@ -38,7 +38,7 @@ export function useTypewriter(text: string) {
     colors.sort(() => {
       const num = Math.random();
       if (num > 0.5) return 1;
-      else return -1;
+      return -1;
     });
   }
 
