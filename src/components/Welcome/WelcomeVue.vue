@@ -1,28 +1,26 @@
 <script lang="ts" setup>
-  import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref, type Ref } from "vue";
 
-  const welcome:Ref<HTMLElement | null> = ref(null)
-  const presentation:Ref<HTMLElement | null> = ref(null)
+const welcome: Ref<HTMLElement | null> = ref(null);
+const presentation: Ref<HTMLElement | null> = ref(null);
 
-  onMounted(() => {
-    const duration = 1400
-    
-    if(welcome.value && presentation.value) {
+onMounted(() => {
+  const duration = 1400;
 
-      welcome.value.classList.add("animate");
-      presentation.value.classList.add("animate");
+  if (welcome.value && presentation.value) {
+    welcome.value.classList.add("animate");
+    presentation.value.classList.add("animate");
 
-      welcome.value.style.animationDuration = `${duration}ms`
-      presentation.value.style.animationDuration = `${duration * 2}ms`
-    }
-  })
-
+    welcome.value.style.animationDuration = `${duration}ms`;
+    presentation.value.style.animationDuration = `${duration * 2}ms`;
+  }
+});
 </script>
 
 <template>
   <div class="container flex flex-col gap-8 justify-center items-center">
     <div class="presentation">
-      <p 
+      <p
         ref="welcome"
         class="text-[50px] lg:text-[70px] font-semibold text-center bg-gradient-to-tr from-blue-500 to-purple-800 bg-clip-text text-transparent"
       >
@@ -30,30 +28,33 @@
       </p>
     </div>
     <div class="myself">
-      <p 
+      <p
         ref="presentation"
         class="text-center text-[25px] lg:text-[30px] font-extralight bg-gradient-to-tr text-[#ddd]"
       >
-        Me chamo Gabriel, tenho 19 anos e estou no 4° semestre de Análise e Desenvolvimento de Sistemas pela FMU e um aprendiz constate para se tornar um desenvolvedor. Que tal dar uma olhada em minhas experiências e habilidades?
+        Me chamo Gabriel, tenho 19 anos e estou no 5° semestre de Análise e
+        Desenvolvimento de Sistemas pela FMU e um aprendiz constate para se
+        tornar um desenvolvedor. Que tal dar uma olhada em minhas experiências e
+        habilidades?
       </p>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .animate {
-    animation-name: showUp;
-    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  }
+.animate {
+  animation-name: showUp;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
 
-  @keyframes showUp {
-    0% {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+@keyframes showUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
   }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 </style>
