@@ -13,7 +13,7 @@ const stylingOptions = computed(() => {
 });
 
 const containterStyleOptions = computed(() => {
-  if (minimalistOption.value) return "knowledge flex flex-wrap gap-8";
+  if (minimalistOption.value) return "knowledge flex flex-col gap-8";
   return "knowledge grid w-full gap-4 lg:grid-cols-2";
 });
 
@@ -143,7 +143,7 @@ const knowledges: Knowledges = {
     {
       imgLink: 'https://cdn.cdnlogo.com/logos/n/80/next-js.svg',
       colors: {
-        from: "#ddd",
+        from: "#aaa",
         to: "#444"
       },
       name: "Next",
@@ -285,10 +285,10 @@ const knowledges: Knowledges = {
         }" />
       </button>
       <div class="minimalist-description mt-8">
-        <section v-if="minimalistOption"
+        <!-- <section v-if="minimalistOption"
           class="bg-clip-text inline text-transparent bg-gradient-to-r from-blue-500 via-blue-400 to-blue-800">
           Passe o mouse em cima ou toque nas tecnologias para ver a descrição
-        </section>
+        </section> -->
       </div>
     </div>
     <div class="knowledge-container" v-for="(value, key) in knowledges" :key="value?.toString()">
