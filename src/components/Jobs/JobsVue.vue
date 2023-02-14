@@ -10,6 +10,16 @@ type Jobs = {
 
 const jobs: Jobs[] = [
   {
+    company: "JSMX",
+    name: "Desenvolvedor Full Stack Pleno",
+    description: `Desenvolvimento de sistemas web responsivos utilizando NextJS, Typescript e Styled Components, 
+    tanto para design quanto para chamadas para o back-end, para retorno dinâmico de dados, criação de rotas e lógica 
+    de negócio no back-end utilizando ExpressJS, juntamente com KnexJS para conexão com o banco de dados, com padrões 
+    de Orientação a Objetos, utilizando Models, Services e Controllers. Criação de tabelas e queries utilizando o banco 
+    de dados relacional PostgreSQL. Conteinerização utilizando Docker.
+`,
+  },
+  {
     name: "Freelance em Desenvolvimento Front-End",
     company: "SelfParking",
     description:

@@ -18,9 +18,6 @@ import ContactVue from "./Contact/ContactVue.vue";
     <section name="knowledges">
       <KnowledgesVue />
     </section>
-    <section name="projects">
-      <ProjectsVue />
-    </section>
     <section name="languages">
       <LanguagesVue />
     </section>
@@ -36,6 +33,7 @@ import ContactVue from "./Contact/ContactVue.vue";
   transform: translateY(-15%);
   opacity: 0;
 }
+
 section {
   margin: 5rem 0;
 }
