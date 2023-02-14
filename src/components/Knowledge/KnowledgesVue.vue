@@ -140,6 +140,15 @@ const knowledges: Knowledges = {
         to: "#CF76A6",
       },
     },
+    {
+      imgLink: 'https://cdn.cdnlogo.com/logos/n/80/next-js.svg',
+      colors: {
+        from: "#ddd",
+        to: "#444"
+      },
+      name: "Next",
+      description: "Server Side Rendering, Static Props, Next Middlewares e construção de APIs com o back-end fornecido pelo framework."
+    }
   ],
   backend: [
     {
@@ -267,55 +276,31 @@ const knowledges: Knowledges = {
     <CodeTypewriter message="Conhecimentos" />
     <div class="simple font-bold text-2xl">
       <p
-        class="mr-4 h-auto inline bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-blue-500"
-      >
+        class="mr-4 h-auto inline bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-blue-500">
         Modo minimalista
       </p>
-      <button
-        @click="switchOption"
-        :class="`button p-2 rounded-3xl w-[5rem] ` + stylingOptions"
-      >
-        <div
-          class="circle duration-200 rounded-[50%] bg-white w-6 h-6"
-          :style="{
-            transform: minimalistOption ? 'translateX(175%)' : 'translateX(0)',
-          }"
-        />
+      <button @click="switchOption" :class="`button p-2 rounded-3xl w-[5rem] ` + stylingOptions">
+        <div class="circle duration-200 rounded-[50%] bg-white w-6 h-6" :style="{
+          transform: minimalistOption ? 'translateX(175%)' : 'translateX(0)',
+        }" />
       </button>
       <div class="minimalist-description mt-8">
-        <section
-          v-if="minimalistOption"
-          class="bg-clip-text inline text-transparent bg-gradient-to-r from-blue-500 via-blue-400 to-blue-800"
-        >
+        <section v-if="minimalistOption"
+          class="bg-clip-text inline text-transparent bg-gradient-to-r from-blue-500 via-blue-400 to-blue-800">
           Passe o mouse em cima ou toque nas tecnologias para ver a descrição
         </section>
       </div>
     </div>
-    <div
-      class="knowledge-container"
-      v-for="(value, key) in knowledges"
-      :key="value?.toString()"
-    >
+    <div class="knowledge-container" v-for="(value, key) in knowledges" :key="value?.toString()">
       <h2 class="text-2xl font-thin my-4">{{ descriptions[key] }}</h2>
       <div :class="containterStyleOptions">
         <template v-if="minimalistOption">
-          <MinimalistKnowledge
-            v-for="knowledge in value"
-            :colors="knowledge.colors"
-            :name="knowledge.name"
-            :imgLink="knowledge.imgLink"
-            :description="knowledge.description"
-            :key="knowledge.name"
-          />
+          <MinimalistKnowledge v-for="knowledge in value" :colors="knowledge.colors" :name="knowledge.name"
+            :imgLink="knowledge.imgLink" :description="knowledge.description" :key="knowledge.name" />
         </template>
         <template v-else>
-          <KnowledgeVue
-            v-for="item in value"
-            :key="item.name"
-            :name="item.name"
-            :img-link="item.imgLink"
-            :colors="item.colors"
-          >
+          <KnowledgeVue v-for="item in value" :key="item.name" :name="item.name" :img-link="item.imgLink"
+            :colors="item.colors">
             <template v-slot:name>{{ item.name }}</template>
             <template v-slot:description>{{ item.description }}</template>
           </KnowledgeVue>
@@ -325,4 +310,6 @@ const knowledges: Knowledges = {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
