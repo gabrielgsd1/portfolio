@@ -32,10 +32,8 @@ onMounted(() => {
         ref="presentation"
         class="text-center text-[25px] lg:text-[30px] font-extralight bg-gradient-to-tr text-[#ddd]"
       >
-        Me chamo Gabriel, tenho 19 anos e estou no 5° semestre de Análise e
-        Desenvolvimento de Sistemas pela FMU e um aprendiz constate para se
-        tornar um desenvolvedor. Que tal dar uma olhada em minhas experiências e
-        habilidades?
+        Me chamo Gabriel, tenho 20 anos e sou formado em Análise e
+        Desenvolvimento de Sistemas pela FMU. Sou um desenvolvedor com 3 anos de experiência, atualmente atuo como Desenvolvedor Full Stack Pleno. Expertise em construção e manutenção de aplicações web sólidas.
       </p>
     </div>
   </div>
